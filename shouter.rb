@@ -5,7 +5,10 @@ require 'active_record'
 
 require 'sinatra'
 require 'sinatra/reloader'
+
 require 'pry'
+require 'securerandom'
+
 
 set :port, 3003
 set :bind, '0.0.0.0'
@@ -30,7 +33,7 @@ class User < ActiveRecord::Base
 
 	private
 	def handle_validation
-		unless handle.split(" ").length != 1
+		unless handle.split(" ").length == 1
 			errors.add(:handle, 'handle should be only one word')
 		end
 	end
