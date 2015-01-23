@@ -1,0 +1,16 @@
+<% if (@shouts.length > 0) %>
+	<ul>
+	<p> Check the latest shouts </p>
+	<ul>
+		<% @shouts.each do |shout| %>
+			<% name = @users(shout.user_id).name %>
+			<% handle = @users(shout.user_id).handle %>
+			<% shout = shout.message %>
+			
+			<li><%= "#{handle} (#{name})" %></li>
+			<p> <%= shout %> </p>
+		<% end %>
+	</ul>
+<% else %>
+	<h2> There are not shouts already on the system </h2>
+<% end %>
