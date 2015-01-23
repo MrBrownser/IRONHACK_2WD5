@@ -33,8 +33,10 @@ class User < ActiveRecord::Base
 
 	private
 	def handle_validation
-		unless handle.split(" ").length == 1
-			errors.add(:handle, 'handle should be only one word')
+		if handle != nil
+			unless handle.split(" ").length == 1
+				errors.add(:handle, 'handle should be only one word')
+			end
 		end
 	end
 end
@@ -69,3 +71,5 @@ get '/' do
 	@shouts = Shout.order(created_at: :desc)
 	erb :mainview
 end
+
+post 
