@@ -3,8 +3,8 @@
 	<p> Check the latest shouts </p>
 	<ul>
 		<% @shouts.each do |shout| %>
-			<% name = @users(shout.user_id).name %>
-			<% handle = @users(shout.user_id).handle %>
+			<% name = @users.find(shout.user_id).name %>
+			<% handle = @users.find(shout.user_id).handle %>
 			<% shout = shout.message %>
 			
 			<li><%= "#{handle} (#{name})" %></li>
