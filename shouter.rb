@@ -69,7 +69,41 @@ end
 get '/' do
 	@users = User.all
 	@shouts = Shout.order(created_at: :desc)
+	@title = "Check the latest shouts!"
 	erb :mainview
 end
 
-post 
+get '/bests' do
+	@users = User.all
+	@shouts = Shout.order(likes: :desc)
+	@title = "Check the shouts with most likes!"
+	erb :mainview
+end
+
+get '/signup'
+
+get '/logout'
+# session.inspect
+session[:handle] = nil
+
+get '/:handle' do
+	handle = params[:handle]
+	user_id = User.find_by handle: "#{handle}"
+	shouts = Shout.find_by user_id: "#{user_id}"
+	erb :mainview
+end
+
+
+post '/login'
+	# sacar el id del usuario a través del pwd
+	user_pwd = params[:pwd]
+	handle = User.find_by handle: "#{user_pwd}"
+	session[:handle] = handle
+end
+
+post '/signup'
+
+post '/shout'
+
+post '/like'
+

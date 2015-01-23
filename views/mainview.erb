@@ -1,6 +1,6 @@
 <% if (@shouts.length > 0) %>
 	<ul>
-	<p> Check the latest shouts </p>
+	<h3> <%= @title %> </h3>
 	<ul>
 		<% @shouts.each do |shout| %>
 			<% name = @users.find(shout.user_id).name %>

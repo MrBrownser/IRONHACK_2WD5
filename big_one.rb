@@ -15,18 +15,23 @@
 #We will call it… SHOUTER, because we are THIS cool.
 
 # The rest will be pretty much an early version of Twitter.
+
+
 # - The Model(s)
 #   - We will have two models, User and Shout.
 #   - The User model will have:
 #     - A name, which must be present.
 #     - A handle, which must be present and unique. It should not contain spaces, and be only characters in downcase.
 #     - A password, which must be present and will be generated randomly when creating a User. It will be 20 characters long and unique.
+
 #   - The Shout model will have:
 #     - A message, with at least one character and at most 200. (BECAUSE SHOUTING NEEDS MORE CHARACTERS THAN TWITTING)
 #     - A many-to-one relation to a User, which must be present.
 #     - A created_at, which is the moment when the SHOUT is saved (this behaviour must be implemented within the class, not outside). It
 #     must be present.
 #     - A likes counter, which must be an integer, at least 0.
+
+
 # - The website
 #   - We will have a main page where we can SHOUT. There will be a form in the top that takes care of that with a wide text field for the
 #   message, and an input button in order to SHOUT.
